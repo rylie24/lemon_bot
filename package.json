@@ -1,0 +1,11 @@
+{
+  "name": "lemon",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.13.0",
+    "node-fetch": "^2.6.1",
+    "redis": "^4.6.8"
+  }
+}
