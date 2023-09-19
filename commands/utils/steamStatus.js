@@ -16,10 +16,11 @@ module.exports = {
 			let game_info = data['response']['players'][0];
 			if("gameextrainfo" in game_info) {
 				await interaction.reply({content: game_info['gameextrainfo'], ephemeral: true});
+			} else {
+				await interaction.reply({content: "No game being played...", ephemeral: true});
 			}
 		} catch (e) {
 			console.log();
 		}
-		await interaction.reply({content: "No game being played...", ephemeral: true});
 	},
 };
