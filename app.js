@@ -1,10 +1,24 @@
 const fs = require('node:fs');
+const Sequalize = require('sequelize');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildPresences] });
+
+const sequalize = new Sequalize('username', 'password', 'databse', {
+	host: 'localhost',
+	dialect: 'sqlite',
+	logging: false,
+	// SQLite only
+	storage: 'database.sqlite',
+});
+
+const Member = sequalize.define('member', {
+	name: Sequalize.TEXT,
+	value: Sequalize.BOOLEAN
+});
 
 client.commands = new Collection();
 const foldersPath = path.join(__dirname, 'commands');
