@@ -6,6 +6,13 @@
   "dependencies": {
     "discord.js": "^14.13.0",
     "node-fetch": "^2.6.1",
-    "redis": "^4.6.8"
-  }
+    "redis": "^4.6.8",
+    "sequelize": "^6.33.0",
+    "sqlite3": "^5.1.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "description": ""
 }
