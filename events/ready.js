@@ -22,7 +22,7 @@ module.exports = {
 				content: 'Click to get the crystal of the day:',
 				components: [new ActionRowBuilder().addComponents(crystalButton)]
 			});
-		}, 86400);
+		}, 1000 * 60 * 60 * 24);
 
 		console.log(`Ready! Logged in as ${client.user.tag}`);
 	},

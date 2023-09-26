@@ -14,7 +14,7 @@ module.exports = {
                 .setDescription('What does it do?')
                 .setRequired(true)),
     async execute(interaction) {
-        if (interaction.member.roles.cache.has("1064701130371780649")) {
+        if (interaction.member.roles.cache.has("771820029721051246")) {
             await Crystal.create({
                 name: interaction.options.getString('crystal'),
                 description: interaction.options.getString('description')

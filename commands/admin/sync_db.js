@@ -8,7 +8,7 @@ module.exports = {
 		.setDescription('Adds new users to the database.'),
 	async execute(interaction) {
 		console.log(interaction.user);
-		if (interaction.member.roles.cache.has("1064701130371780649")) {
+		if (interaction.member.roles.cache.has("771820029721051246")) {
 			const guild = interaction.client.guilds.cache.get(guildId);
         	const members = await guild.members.cache.map(async member => {
 				// First we delete all members for a refill.

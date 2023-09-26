@@ -23,13 +23,13 @@ module.exports = {
         } else if (interaction.isButton()) {
             // Crystal interaction
             if (interaction.customId == "crystal") {
-                const crystal = await Crystal.findOne({ order: sequelize.fn('RANDOM') });
+                const cry = await Crystal.findOne({ order: sequelize.fn('RANDOM') });
                 const crystalEmbed = new EmbedBuilder()
                     .setColor(0x800080)
                     .setTitle('Crystal of the Day')
                     .addFields(
-                        { name: "Crystal", value: crystal.name },
-                        { name: "What it does?", value: crystal.description }
+                        { name: "Crystal", value: cry.name },
+                        { name: "What it does?", value: cry.description }
                     )
                 const member = await Viewed.findOne({ where: { name: interaction.user.username } })
                 await Viewed.update({ value: 1 }, { where: { name: member.name } });
