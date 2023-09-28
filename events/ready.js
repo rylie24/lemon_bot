@@ -1,4 +1,4 @@
-const Crystal = require('../utils/crystalView');
+const Viewed = require('../models/viewed');
 const { crystal_channel } = require('../config.json');
 const { Events, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
@@ -12,7 +12,8 @@ module.exports = {
 			.setStyle(ButtonStyle.Primary);
 		const crystalChannel = client.channels.cache.find(c => c.id == crystal_channel);
 
-		setInterval(() => {
+		setInterval(async () => {
+			await Viewed.update({ value: 0 }, { where: { value: 1 } });
 			crystalChannel.messages.fetch({ limit: 1 }).then(messages => {
 				messages.forEach(message => {
 					message.delete();

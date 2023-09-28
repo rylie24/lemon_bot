@@ -1,5 +1,5 @@
 const { Events } = require('discord.js');
-const { invite_code } = require('../config.json');
+const { author_id, invite_code } = require('../config.json');
 
 module.exports = {
     name: Events.GuildMemberRemove,
