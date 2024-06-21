@@ -1,12 +1,13 @@
 const { Events, EmbedBuilder } = require('discord.js');
 const Viewed = require('../models/viewed');
+const {command} = require('../utils/handleCommands');
 const Crystal = require('../models/crystals');
 const sequelize = require('../utils/database');
 
 module.exports = {
     name: Events.InteractionCreate,
-    async execute(interaction) {
-        if (interaction.isChatInputCommand()) {
+    async execute(interaction, client) {
+        if (interaction.isCommand()) {
             const command = interaction.client.commands.get(interaction.commandName);
 
             if (!command) {
