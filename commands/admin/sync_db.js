@@ -1,4 +1,5 @@
 const {guildId} = require('../../config.json');
+const config = require('../../config.json');
 const Viewed = require('../../models/viewed');
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 
@@ -8,7 +9,7 @@ module.exports = {
 		.setDescription('Adds new users to the database.'),
 	async execute(interaction) {
 		console.log(interaction.user);
-		if (interaction.member.roles.cache.has("771820029721051246")) {
+		if (interaction.member.roles.cache.has(config.adminRole)) {
 			const guild = interaction.client.guilds.cache.get(guildId);
         	const members = await guild.members.cache.map(async member => {
 				// First we delete all members for a refill.

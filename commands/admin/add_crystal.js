@@ -1,4 +1,5 @@
 const Crystal = require('../../models/crystals');
+const config = require('../../config.json');
 const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
@@ -14,7 +15,7 @@ module.exports = {
                 .setDescription('What does it do?')
                 .setRequired(true)),
     async execute(interaction) {
-        if (interaction.member.roles.cache.has("771820029721051246")) {
+        if (interaction.member.roles.cache.has(config.adminRole)) {
             await Crystal.create({
                 name: interaction.options.getString('crystal'),
                 description: interaction.options.getString('description')

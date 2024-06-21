@@ -19,9 +19,9 @@ module.exports = {
         delete require.cache[require.resolve(`./${command.data.name}.js`)];
 
         try {
-            interaction.client.commands.delete(command.data.name);
+            await interaction.client.commands.delete(command.data.name);
             const newCommand = require(`./${command.data.name}.js`);
-            interaction.client.commands.set(newCommand.data.name, newCommand);
+            await interaction.client.commands.set(newCommand.data.name, newCommand);
             await interaction.reply(`Command \`${newCommand.data.name}\` was reloaded!`);
         } catch (error) {
             console.error(error);
