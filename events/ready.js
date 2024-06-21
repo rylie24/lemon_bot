@@ -12,6 +12,7 @@ module.exports = {
 			.setLabel('View Crystal')
 			.setStyle(ButtonStyle.Primary);
 		const crystalChannel = client.channels.cache.find(c => c.id == config.crystal_channel);
+
 		const dayInterval = 1000 * 60 * 60 * 24;
 
 		const crystal =  new cron.CronJob('21 15 * * *', async () => {
@@ -21,6 +22,7 @@ module.exports = {
 					message.delete();
 				});
 			});
+      
 			client.channels.cache.find(c => c.id == config.crystal_channel).send({
 				content: 'Click to get the crystal of the day:',
 				components: [new ActionRowBuilder().addComponents(crystalButton)]
