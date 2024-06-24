@@ -15,7 +15,7 @@ module.exports = {
 
 		const dayInterval = 1000 * 60 * 60 * 24;
 
-		const crystal =  new cron.CronJob('21 15 * * *', async () => {
+		const crystal =  new cron.CronJob('30 15 * * *', async () => {
 			await Viewed.update({ value: 0 }, { where: { value: 1 } });
 			crystalChannel.messages.fetch({ limit: 1 }).then(messages => {
 				messages.forEach(message => {
