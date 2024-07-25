@@ -6,9 +6,9 @@ module.exports = {
         "contexts": [1, 2]
     },
     async execute(interaction) {
-        await interaction.reply({content: 'https://media1.tenor.com/m/nl5AkvIm4GoAAAAC/tickle-feet.gif'});
+        await interaction.reply({content: 'https://tenor.com/view/milk-and-mocha-tickle-bear-mochi-tickle-gif-129382352328703905'});
         for (let i = 1; i < 6; i++) {
-            await interaction.followUp({content: 'https://media1.tenor.com/m/nl5AkvIm4GoAAAAC/tickle-feet.gif'});
+            await interaction.followUp({content: 'https://tenor.com/view/milk-and-mocha-tickle-bear-mochi-tickle-gif-129382352328703905'});
         }
     }
 }
