@@ -10,6 +10,15 @@ module.exports = {
 	async execute(interaction) {
 		console.log(interaction.user);
 		if (interaction.member.roles.cache.has(config.adminRole)) {
+			// First we sync the db if nothing is populated.
+			const Viewed = require('./models/viewed');
+			const Crystal = require('./models/crystals');
+
+			if (Viewed.findAndCountAll() == 0 && Crystal.findAndCountAll() == 0) {
+				Viewed.sync({force: true});
+				Crystal.sync({ force: true });
+			}
+
 			const guild = interaction.client.guilds.cache.get(guildId);
         	const members = await guild.members.cache.map(async member => {
 				// First we delete all members for a refill.
