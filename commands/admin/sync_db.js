@@ -11,8 +11,8 @@ module.exports = {
 		console.log(interaction.user);
 		if (interaction.member.roles.cache.has(config.adminRole)) {
 			// First we sync the db if nothing is populated.
-			const Viewed = require('./models/viewed');
-			const Crystal = require('./models/crystals');
+			const Viewed = require('../../models/viewed');
+			const Crystal = require('../../models/crystals');
 
 			if (Viewed.findAndCountAll() == 0 && Crystal.findAndCountAll() == 0) {
 				Viewed.sync({force: true});
