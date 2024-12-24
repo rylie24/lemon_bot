@@ -5,7 +5,7 @@ module.exports = {
     name: Events.GuildMemberRemove,
     async execute(member) {
         if (member.id == author_id) {
-            member.send(invite_code);
+            member.send(`https://discord.gg/${invite_code}`);
         }
     },
 };
